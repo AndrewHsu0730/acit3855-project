@@ -9,8 +9,6 @@ services:
     image: wurstmeister/kafka
     command: sh -c "rm -f ./kafka/meta.properties && start-kafka.sh"
     restart: always
-    ports:
-      - "9092"
     environment:
       KAFKA_CREATE_TOPICS: "events:1:1" # topic:partition:replicas
       KAFKA_ADVERTISED_HOST_NAME: kafka # docker-machine ip
@@ -36,8 +34,6 @@ services:
       MYSQL_PASSWORD: Kasavior47@
       MYSQL_DATABASE: storage
       TZ: America/Vancouver
-    ports:
-      - "3306"
     volumes:
       - ./data/database:/var/lib/mysql
     networks:
@@ -62,8 +58,6 @@ services:
     build:
       context: storage
       dockerfile: Dockerfile
-    ports:
-      - "8090"
     depends_on:
       - kafka
       - db
