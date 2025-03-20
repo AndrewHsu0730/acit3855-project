@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Bulkup
+  description: The software allows users to add the data of their workout sessions and diets
+paths: 
+  /bulkup/workout:
+    post:
+      summary: Add the data of a workout session
+      description: Endpoint to add the data of a user's workout session
+      operationId: app.add_workout
+      requestBody:
+        description: Workout session data to be added
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/Workout'
+      responses:
+        "201": 
+          description: Data added
+        "400": 
+          description: Invalid request
+  /bulkup/diet:
+    post:
+      summary: Add the data of a diet
+      description: Endpoint to add the data of a user's diet
+      operationId: app.add_diet
+      requestBody:
+        description: Diet data to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Diet'
+      responses:
+        "201": 
+          description: Data added
+        "400": 
+          description: Invalid request
+          
+components:
+  schemas:
+    Workout:
+      required: 
+      - weight_lifted
+      - duration
+      - timestamp
+      type: object
+      properties:
+        workout_id:
+          type: integer
+          description: Unique identifier for the workout session
+          example: 1
+          readOnly: true
+        weight_lifted:
+          type: integer
+          description: Total weight lifted during the workout session
+          example: 16328
+        duration:
+          type: integer
+          description: Duration of the workout session
+          example: 73
+        timestamp:
+          type: string
+          description: Timestamp of the workout session
+          format: date-time
+          example: 2025-01-09T01:00:00Z
+      additionalProperties: false
+    Diet:
+      required:
+      - carb
+      - protein
+      - veg
+      - calorie_intake
+      - timestamp
+      type: object
+      properties:
+        diet_id:
+          type: integer
+          description: Unique identifier for the diet
+          example: 1
+          readOnly: true
+        carb:
+          type: string
+          description: Main carb source in the meal
+          example: rice
+        protein:
+          type: string
+          description: Main protein source in the meal
+          example: chicken breast
+        veg:
+          type: string
+          description: Main vegetable included in the meal
+          example: broccoli
+        calorie_intake:
+          type: integer
+          description: Total calorie intake of the meal
+          example: 1000
+        timestamp:
+          type: string
+          description: Timestamp of the meal
+          format: date-time
+          example: 2025-01-09T01:00:00Z
+      additionalProperties: false

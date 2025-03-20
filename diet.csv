@@ -1,0 +1,51 @@
+carb,protein,veg,calorie_intake,timestamp
+white rice,chicken breast,spinach,1500,2025-01-09T01:00:00Z
+brown rice,turkey,kale,1520,2025-01-10T01:00:00Z
+noodles,salmon,broccoli,1540,2025-01-11T01:00:00Z
+oats,tuna,cauliflower,1560,2025-01-12T01:00:00Z
+barley,shrimp,carrots,1580,2025-01-13T01:00:00Z
+quinoa,beef,zucchini,1600,2025-01-14T01:00:00Z
+whole wheat bread,pork,bell peppers,1620,2025-01-15T01:00:00Z
+pasta,eggs,tomatoes,1640,2025-01-16T01:00:00Z
+tortillas,cottage cheese,cucumbers,1660,2025-01-17T01:00:00Z
+millet,greek yogurt,green beans,1680,2025-01-18T01:00:00Z
+rye,tofu,asparagus,1700,2025-01-19T01:00:00Z
+buckwheat,tempeh,brussels sprouts,1720,2025-01-20T01:00:00Z
+amaranth,lentils,cabbage,1740,2025-01-21T01:00:00Z
+sweet potatoes,chickpeas,eggplant,1760,2025-01-22T01:00:00Z
+potatoes,black beans,mushrooms,1780,2025-01-23T01:00:00Z
+yams,kidney beans,artichokes,1800,2025-01-24T01:00:00Z
+farro,pinto beans,avocados,1820,2025-01-25T01:00:00Z
+couscous,edamame,lettuce,1840,2025-01-26T01:00:00Z
+polenta,quinoa,arugula,1860,2025-01-27T01:00:00Z
+teff,seitan,radishes,1880,2025-01-28T01:00:00Z
+spaghetti,almonds,peas,1900,2025-01-29T01:00:00Z
+pita bread,pumpkin seeds,okra,1920,2025-01-30T01:00:00Z
+bagels,chia seeds,collard greens,1940,2025-01-31T01:00:00Z
+granola,peanut butter,swiss chard,1960,2025-02-01T01:00:00Z
+pancakes,hummus,turnips,1980,2025-02-02T01:00:00Z
+rice cakes,sunflower seeds,bok choy,2000,2025-02-03T01:00:00Z
+scones,hemp seeds,fennel,2020,2025-02-04T01:00:00Z
+crackers,low-fat cheese,radicchio,2040,2025-02-05T01:00:00Z
+grits,ricotta cheese,mustard greens,2060,2025-02-06T01:00:00Z
+cornmeal,casein protein,endive,2080,2025-02-07T01:00:00Z
+energy bars,whey protein,watercress,2100,2025-02-08T01:00:00Z
+granola bars,sardines,daikon radish,2120,2025-02-09T01:00:00Z
+brown rice pasta,tilapia,kabocha squash,2140,2025-02-10T01:00:00Z
+instant oatmeal,mackerel,chayote,2160,2025-02-11T01:00:00Z
+rice noodles,venison,jicama,2180,2025-02-12T01:00:00Z
+sweet cornmeal,duck,leeks,2200,2025-02-13T01:00:00Z
+tapioca,tempeh bacon,shallots,2220,2025-02-14T01:00:00Z
+rice pilaf,prawns,rutabaga,2240,2025-02-15T01:00:00Z
+semolina,bison,seaweed,2260,2025-02-16T01:00:00Z
+spelt,lamb,bamboo shoots,2280,2025-02-17T01:00:00Z
+fettuccine,mussels,snow peas,2300,2025-02-18T01:00:00Z
+muesli,scallops,fiddleheads,2320,2025-02-19T01:00:00Z
+bananas,peanuts,chard,2340,2025-02-20T01:00:00Z
+apples,protein powder,pea shoots,2360,2025-02-21T01:00:00Z
+pretzels,soy milk,edamame,2380,2025-02-22T01:00:00Z
+mango,hemp protein,okra,2400,2025-02-23T01:00:00Z
+pineapple,chicken wings,napa cabbage,2420,2025-02-24T01:00:00Z
+grapes,turkey bacon,mache,2440,2025-02-25T01:00:00Z
+porridge,canned fish,taro root,2460,2025-02-26T01:00:00Z
+bulgar wheat,quorn,kohlrabi,2480,2025-02-27T01:00:00Z

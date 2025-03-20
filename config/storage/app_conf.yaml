@@ -1,0 +1,11 @@
+version: 1
+datastore:
+  user: andrew
+  password: Kasavior47@
+  hostname: db
+  port: 3306
+  db: storage
+events:
+  hostname: kafka
+  port: 9092
+  topic: events

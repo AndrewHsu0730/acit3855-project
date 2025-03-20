@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  description: This API provides event stats
+  version: "1.0.0"
+  title: Stats API
+  contact:
+    email: andrew311000@gmail.com
+paths:
+  /stats:
+    get:
+      summary: Get event stats
+      operationId: app.get_stats
+      description: Get workout and diet data processed statistics
+      responses:
+        "200":
+          description: Successfully return statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/ReadingStats"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+components:
+  schemas:
+    ReadingStats:
+      required:
+        - num_of_workout_events
+        - max_weight_lifted
+        - num_of_diet_events
+        - max_calorie_intake
+        - last_updated
+      properties:
+        num_of_workout_events:
+          type: integer
+          example: 30
+        max_weight_lifted:
+          type: integer
+          example: 30000
+        num_of_diet_events:
+          type: integer
+          example: 30
+        max_calorie_intake:
+          type: integer
+          example: 4000
+        last_updated:
+          type: string
+          format: date-time
+          example: 2025-02-07T12:34:56Z

@@ -1,0 +1,9 @@
+version: 1
+events:
+  workout:
+    url: http://storage:8090/bulkup/workout
+  diet:
+    url: http://storage:8090/bulkup/diet
+  hostname: kafka
+  port: 9092
+  topic: events
