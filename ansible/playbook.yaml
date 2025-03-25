@@ -1,0 +1,46 @@
+- name: Deploy services on the EC2 instance
+  hosts: ec2_instance
+  become: yes
+  tasks:
+    - name: Ensure config folders exist
+      ansible.builtin.file:
+        path: "/home/ubuntu/acit3855-project/config/{{ item }}"
+        state: directory
+        owner: nobody
+        group: nogroup
+        mode: "0755"
+      loop:
+        - receiver
+        - storage
+        - processing
+        - analyzer
+    - name: Ensure log folders exist
+      ansible.builtin.file:
+        path: "/home/ubuntu/acit3855-project/logs/{{ item }}"
+        state: directory
+        owner: nobody
+        group: nogroup
+        mode: "0755"
+      loop:
+        - receiver
+        - storage
+        - processing
+        - analyzer
+    - name: Ensure the folder storing stats.json exists
+      ansible.builtin.file:
+        path: "/home/ubuntu/acit3855-project/data/processing"
+        state: directory
+        owner: nobody
+        group: nogroup
+        mode: "0755"
+    - name: Update the project repo
+      ansible.builtin.git:
+        repo: "git@github.com:AndrewHsu0730/acit3855-project.git"
+        dest: "/home/ubuntu/acit3855-project"
+        version: main
+        accept_hostkey: yes
+        key_file: "/home/ubuntu/.ssh/acit3855-project"
+    - name: Run services
+      ansible.builtin.shell: |
+        cd /home/ubuntu/acit3855-project
+        docker compose up -d --build
