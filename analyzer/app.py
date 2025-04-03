@@ -22,7 +22,7 @@ logger = logging.getLogger("basicLogger")
 def get_workout_msg(index):
     client = KafkaClient(hosts=f"{app_config["events"]["hostname"]}:{app_config["events"]["port"]}")
     topic = client.topics[str.encode(app_config["events"]["topic"])]
-    consumer = topic.get_simple_consumer(consumer_group = b"event_group", reset_offset_on_start=True, consumer_timeout_ms=1000)
+    consumer = topic.get_simple_consumer(reset_offset_on_start=True, consumer_timeout_ms=1000)
 
     counter = 0
     for msg in consumer:
