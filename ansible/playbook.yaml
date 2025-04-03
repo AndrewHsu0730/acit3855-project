@@ -40,6 +40,7 @@
         version: main
         accept_hostkey: yes
         key_file: "/home/ubuntu/.ssh/acit3855-project"
+        force: true
     - name: Run services
       ansible.builtin.shell: |
         cd /home/ubuntu/acit3855-project
