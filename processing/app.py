@@ -118,7 +118,7 @@ app.add_middleware(
 )
 
 
-app.add_api("bulkup.yaml", strict_validation = True, validate_responses = True)
+app.add_api("bulkup.yaml", base_path = "/processing", strict_validation = True, validate_responses = True)
 
 
 if __name__ == "__main__":
