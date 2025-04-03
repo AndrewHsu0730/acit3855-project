@@ -1,10 +1,10 @@
 /* UPDATE THESE VALUES TO MATCH YOUR SETUP */
 
-const PROCESSING_STATS_API_URL = "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com:8100/stats"
+const PROCESSING_STATS_API_URL = "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com/processing/stats"
 const ANALYZER_API_URL = {
-    stats: "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com:8200/stats",
-    workout: "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com:8200/workout?index=0",
-    diet: "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com:8200/diet?index=0"
+    stats: "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com/analyzer/stats",
+    workout: "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com/analyzer/workout?index=0",
+    diet: "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com/analyzer/diet?index=0"
 }
 
 // This function fetches and updates the general statistics

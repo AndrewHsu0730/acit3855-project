@@ -3,6 +3,6 @@ scheduler:
   interval: 5
 events:
   workout:
-    url: http://storage:8090/bulkup/workout
+    url: http://storage/storage/bulkup/workout
   diet:
-    url: http://storage:8090/bulkup/diet
+    url: http://storage/storage/bulkup/diet
