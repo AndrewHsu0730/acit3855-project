@@ -143,7 +143,7 @@ def setup_kafka_thread():
 
 
 app = connexion.FlaskApp(__name__, specification_dir='')
-app.add_api("bulkup.yaml", strict_validation = True, validate_responses = True)
+app.add_api("bulkup.yaml", base_path = "/storage", strict_validation = True, validate_responses = True)
 
 
 if __name__ == "__main__":
