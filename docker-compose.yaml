@@ -80,6 +80,7 @@ services:
       - ./data/processing:/app/data/processing
     environment:
       - TZ=America/Vancouver
+      - CORS_ALLOW_ALL=no
     networks:
       - service
   analyzer:
@@ -93,6 +94,8 @@ services:
     volumes:
       - ./config/analyzer:/app/config/analyzer
       - ./logs/analyzer:/app/logs/analyzer
+    environment:
+      - CORS_ALLOW_ALL=no
     networks:
       - service
 

@@ -7,6 +7,7 @@ from datetime import datetime
 import httpx
 from connexion.middleware import MiddlewarePosition
 from starlette.middleware.cors import CORSMiddleware
+import os
 
 
 with open("config/processing/log_conf.yaml", "r") as f:
@@ -107,15 +108,15 @@ def init_scheduler():
 
 app = connexion.FlaskApp(__name__, specification_dir='')
 
-
-app.add_middleware(
-    CORSMiddleware,
-    position=MiddlewarePosition.BEFORE_EXCEPTION,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"]
-)
+if "CORS_ALLOW_ALL" in os.environ and os.environ["CORS_ALLOW_ALL"] == "yes":
+    app.add_middleware(
+        CORSMiddleware,
+        position=MiddlewarePosition.BEFORE_EXCEPTION,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"]
+    )
 
 
 app.add_api("bulkup.yaml", base_path = "/processing", strict_validation = True, validate_responses = True)
