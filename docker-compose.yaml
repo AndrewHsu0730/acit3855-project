@@ -106,6 +106,8 @@ services:
     ports:
       - "80:80"
     depends_on:
+      - receiver
+      - storage
       - processing
       - analyzer
     volumes:
