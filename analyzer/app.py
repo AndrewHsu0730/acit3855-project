@@ -32,7 +32,9 @@ def get_workout_msg(index):
         data = json.loads(message)
 
         if "datetime" in data:
-            data["datetime"] = data["datetime"].replace(tzinfo=pytz.utc).astimezone(pytz.timezone("America/Los_Angeles"))
+            utc_time = datetime.strptime(data["datetime"], "%Y-%m-%dT%H:%M:%SZ")
+            local_time = utc_time.replace(tzinfo=pytz.utc).astimezone(pytz.timezone("America/Vancouver"))
+            data["datetime"] = local_time.strftime("%Y-%m-%dT%H:%M:%SZ")
 
         logger.debug(data)
 
