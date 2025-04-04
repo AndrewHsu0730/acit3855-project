@@ -89,7 +89,6 @@ services:
       - ./config/analyzer:/app/config/analyzer
       - ./logs/analyzer:/app/logs/analyzer
     environment:
-      - TZ=America/Vancouver
       - CORS_ALLOW_ALL=no
     networks:
       - service
