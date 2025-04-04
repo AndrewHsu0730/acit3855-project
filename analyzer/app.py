@@ -6,6 +6,8 @@ import json
 from connexion.middleware import MiddlewarePosition
 from starlette.middleware.cors import CORSMiddleware
 import os
+import pytz
+from datetime import datetime
 
 
 with open("config/analyzer/app_conf.yaml", "r") as f:
@@ -28,7 +30,12 @@ def get_workout_msg(index):
     for msg in consumer:
         message = msg.value.decode("utf-8")
         data = json.loads(message)
+
+        if "datetime" in data:
+            data["datetime"] = data["datetime"].replace(tzinfo=pytz.utc).astimezone("America/Vancouver")
+
         logger.debug(data)
+
         if data["type"] != "workout":
             continue
         if counter == index:
