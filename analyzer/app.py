@@ -59,7 +59,14 @@ def get_diet_msg(index):
     for msg in consumer:
         message = msg.value.decode("utf-8")
         data = json.loads(message)
+
+        if "datetime" in data:
+            utc_time = datetime.strptime(data["datetime"], "%Y-%m-%dT%H:%M:%SZ")
+            local_time = utc_time.replace(tzinfo=pytz.utc).astimezone(pytz.timezone("America/Vancouver"))
+            data["datetime"] = local_time.strftime("%Y-%m-%dT%H:%M:%SZ")
+
         logger.debug(data)
+        
         if data["type"] != "diet":
             continue
         if counter == index:
