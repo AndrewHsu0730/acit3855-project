@@ -59,7 +59,7 @@ paths:
                 type: object
                 items:
                   $ref: "#/components/schemas/RetrievingStats"
-  /workout_id:
+  /workout-id:
     get:
       summary: Retrieve ids for workout
       operationId: app.get_workout_ids
@@ -72,7 +72,7 @@ paths:
                 type: object
                 items:
                   $ref: "#/components/schemas/WorkoutIds"
-  /diet_id:
+  /diet-id:
     get:
       summary: Retrieve ids for diet
       operationId: app.get_diet_ids
