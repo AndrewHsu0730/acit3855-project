@@ -96,15 +96,54 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Diet'
+  /record_count:
+    get:
+      summary: Retrieve the num of rows for each event
+      operationId: app.count_records
+      responses:
+        "200":
+          description: Successfully count the num of records for each event
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/CountingRows"
+  /workout_id:
+    get:
+      summary: Retrieve ids for workout
+      operationId: app.get_workout_ids
+      responses:
+        "200":
+          description: Successfully retrieve ids for workout
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/WorkoutIds"
+  /diet_id:
+    get:
+      summary: Retrieve ids for diet
+      operationId: app.get_diet_ids
+      responses:
+        "200":
+          description: Successfully retrieve ids for diet
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/DietIds"
           
 components:
   schemas:
     Workout:
       required: 
-      - weight_lifted
-      - duration
-      - timestamp
-      - trace_id
+        - weight_lifted
+        - duration
+        - timestamp
+        - trace_id
       type: object
       properties:
         workout_id:
@@ -137,12 +176,12 @@ components:
       additionalProperties: false
     Diet:
       required:
-      - carb
-      - protein
-      - veg
-      - calorie_intake
-      - timestamp
-      - trace_id
+        - carb
+        - protein
+        - veg
+        - calorie_intake
+        - timestamp
+        - trace_id
       type: object
       properties:
         diet_id:
@@ -181,3 +220,42 @@ components:
           format: uuid
           example: d290f1ee-6c54-4b01-90e6-d701748f0851
       additionalProperties: false
+    CountingRows:
+      required:
+        - workout_row_count
+        - diet_row_count
+      properties:
+        workout_row_count:
+          type: integer
+          example: 1
+        diet_row_count:
+          type: integer
+          example: 1
+    WorkoutIds:
+      type: array
+      items:
+        type: object
+        required:
+          - event_id
+          - trace_id
+        properties:
+          event_id:
+            type: integer
+          trace_id:
+            type: string
+            format: uuid
+            example: d290f1ee-6c54-4b01-90e6-d701748f0851
+    DietIds:
+      type: array
+      items:
+        type: object
+        required:
+          - event_id
+          - trace_id
+        properties:
+          event_id:
+            type: integer
+          trace_id:
+            type: string
+            format: uuid
+            example: d290f1ee-6c54-4b01-90e6-d701748f0851

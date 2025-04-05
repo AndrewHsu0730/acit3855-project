@@ -41,9 +41,9 @@ components:
   schemas:
     Workout:
       required: 
-      - weight_lifted
-      - duration
-      - timestamp
+        - weight_lifted
+        - duration
+        - timestamp
       type: object
       properties:
         workout_id:
@@ -67,11 +67,11 @@ components:
       additionalProperties: false
     Diet:
       required:
-      - carb
-      - protein
-      - veg
-      - calorie_intake
-      - timestamp
+        - carb
+        - protein
+        - veg
+        - calorie_intake
+        - timestamp
       type: object
       properties:
         diet_id:
