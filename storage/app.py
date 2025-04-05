@@ -6,7 +6,7 @@ from model import Workout, Diet
 import functools
 import yaml
 import logging.config
-from sqlalchemy import select
+from sqlalchemy import select, func
 from pykafka import KafkaClient
 from pykafka.common import OffsetType
 import json
@@ -134,6 +134,33 @@ def get_diet_data(start_timestamp, end_timestamp):
     logger.info("Found %d diet events (start: %s, end: %s)", len(results), start, end)
 
     return results
+
+
+def count_records():
+    session = make_session()
+
+    workout_stmt = select(func.count()).select_from(Workout)
+    diet_stmt = select(func.count()).select_from(Diet)
+
+    workout_row_count = session.execute(workout_stmt).scalar()
+    diet_row_count = session.execute(diet_stmt).scalar()
+
+    result = {
+        "workout_row_count": workout_row_count, 
+        "diet_row_count": diet_row_count
+    }
+
+    session.close()
+
+    return result
+
+
+def get_workout_ids():
+    pass
+
+
+def get_diet_ids():
+    pass
 
 
 def setup_kafka_thread():

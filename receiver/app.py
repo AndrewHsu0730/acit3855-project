@@ -35,6 +35,7 @@ def forward_event(event_type, event_data):
     msg_str = json.dumps(msg)
     producer.produce(msg_str.encode("utf-8"))
     logger.info(f"Forwarded {event_type} event to Kafka (trace_id: {trace_id})")
+    logger.info(f"Data forwarded: {event_data}")
     return NoContent, 201
 
 

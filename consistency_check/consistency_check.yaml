@@ -47,10 +47,10 @@ components:
   schemas:
     Checks:
       required:
-      - counts
-      - not_in_db
-      - not_in_queue
-      - last_updated
+        - counts
+        - not_in_db
+        - not_in_queue
+        - last_updated
       type: object
       properties:
         last_updated:
