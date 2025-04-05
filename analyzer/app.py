@@ -98,7 +98,7 @@ def get_stats():
     return {"num_of_workout_events": num_of_workout_events, "num_of_diet_events": num_of_diet_events}, 200
 
 
-def get_wordout_ids():
+def get_workout_ids():
     pass
 
 
