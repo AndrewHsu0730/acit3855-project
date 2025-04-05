@@ -98,6 +98,14 @@ def get_stats():
     return {"num_of_workout_events": num_of_workout_events, "num_of_diet_events": num_of_diet_events}, 200
 
 
+def get_wordout_ids():
+    pass
+
+
+def get_diet_ids():
+    pass
+
+
 app = connexion.FlaskApp(__name__, specification_dir='')
 
 if "CORS_ALLOW_ALL" in os.environ and os.environ["CORS_ALLOW_ALL"] == "yes":
