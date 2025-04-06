@@ -147,9 +147,8 @@ components:
       type: object
       properties:
         workout_id:
-          type: integer
+          type: string
           description: Unique identifier for the workout session
-          example: 1
           readOnly: true
         weight_lifted:
           type: integer
@@ -185,9 +184,8 @@ components:
       type: object
       properties:
         diet_id:
-          type: integer
+          type: string
           description: Unique identifier for the diet
-          example: 1
           readOnly: true
         carb:
           type: string
@@ -240,7 +238,7 @@ components:
           - trace_id
         properties:
           event_id:
-            type: integer
+            type: string
           trace_id:
             type: string
             format: uuid
@@ -254,7 +252,7 @@ components:
           - trace_id
         properties:
           event_id:
-            type: integer
+            type: string
           trace_id:
             type: string
             format: uuid
