@@ -8,7 +8,8 @@ class Base(DeclarativeBase):
 
 class Workout(Base):
     __tablename__ = "workout"
-    workout_id = mapped_column(Integer, primary_key = True, autoincrement = True)
+    workout_id = mapped_column(String(20), primary_key = True)
+    # workout_id = mapped_column(Integer, primary_key = True, autoincrement = True)
     weight_lifted = mapped_column(Integer, nullable = False)
     duration = mapped_column(Integer, nullable = False)
     timestamp = mapped_column(DateTime, nullable = False)
@@ -30,7 +31,8 @@ class Workout(Base):
 
 class Diet(Base):
     __tablename__ = "diet"
-    diet_id = mapped_column(Integer, primary_key = True, autoincrement = True)
+    diet_id = mapped_column(String(20), primary_key = True)
+    # diet_id = mapped_column(Integer, primary_key = True, autoincrement = True)
     carb = mapped_column(String(30), nullable = False)
     protein = mapped_column(String(30), nullable = False)
     veg = mapped_column(String(30), nullable = False)

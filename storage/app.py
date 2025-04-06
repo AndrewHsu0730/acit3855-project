@@ -73,6 +73,7 @@ def use_db_session(func):
 @use_db_session
 def add_workout(session, body):
     event = Workout(
+        workout_id = body["workout_id"],
         weight_lifted = body["weight_lifted"],
         duration = body["duration"],
         timestamp = datetime.strptime(body["timestamp"], "%Y-%m-%dT%H:%M:%SZ"),
@@ -86,6 +87,7 @@ def add_workout(session, body):
 @use_db_session
 def add_diet(session, body):
     event = Diet(
+        diet_id = body["diet_id"],
         carb = body["carb"],
         protein = body["protein"],
         veg = body["veg"],
