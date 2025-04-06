@@ -156,11 +156,31 @@ def count_records():
 
 
 def get_workout_ids():
-    pass
+    session = make_session()
+
+    stmt = select(Workout.workout_id, Workout.trace_id)
+
+    results = [
+        result.to_dict() for result in session.execute(stmt).scalars().all()
+    ]
+
+    session.close()
+
+    return results
 
 
 def get_diet_ids():
-    pass
+    session = make_session()
+
+    stmt = select(Diet.diet_id, Diet.trace_id)
+
+    results = [
+        result.to_dict() for result in session.execute(stmt).scalars().all()
+    ]
+
+    session.close()
+
+    return results
 
 
 def setup_kafka_thread():
