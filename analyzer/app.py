@@ -99,11 +99,41 @@ def get_stats():
 
 
 def get_workout_ids():
-    pass
+    client = KafkaClient(hosts=f"{app_config["events"]["hostname"]}:{app_config["events"]["port"]}")
+    topic = client.topics[str.encode(app_config["events"]["topic"])]
+    consumer = topic.get_simple_consumer(reset_offset_on_start=True, consumer_timeout_ms=1000)
+
+    id_list = []
+
+    for msg in consumer:
+        message = msg.value.decode("utf-8")
+        data = json.loads(message)
+
+        workout_id = data["payload"]["workout_id"]
+        trace_id = data["payload"]["trace_id"]
+
+        id_list.append({"event_id": workout_id, "trace_id": trace_id})
+
+    return id_list
 
 
 def get_diet_ids():
-    pass
+    client = KafkaClient(hosts=f"{app_config["events"]["hostname"]}:{app_config["events"]["port"]}")
+    topic = client.topics[str.encode(app_config["events"]["topic"])]
+    consumer = topic.get_simple_consumer(reset_offset_on_start=True, consumer_timeout_ms=1000)
+
+    id_list = []
+
+    for msg in consumer:
+        message = msg.value.decode("utf-8")
+        data = json.loads(message)
+
+        diet_id = data["payload"]["diet_id"]
+        trace_id = data["payload"]["trace_id"]
+
+        id_list.append({"event_id": diet_id, "trace_id": trace_id})
+
+    return id_list
 
 
 app = connexion.FlaskApp(__name__, specification_dir='')
