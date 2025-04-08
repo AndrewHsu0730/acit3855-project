@@ -111,6 +111,8 @@ def get_workout_ids():
 
         workout_id = data["payload"]["workout_id"]
         trace_id = data["payload"]["trace_id"]
+        logger.debug(f"Workout ID is {workout_id}")
+        logger.debug(f"Trace ID is {trace_id}")
 
         id_list.append({"event_id": workout_id, "trace_id": trace_id})
 
@@ -132,6 +134,8 @@ def get_diet_ids():
 
         diet_id = data["payload"]["diet_id"]
         trace_id = data["payload"]["trace_id"]
+        logger.debug(f"Diet ID is {diet_id}")
+        logger.debug(f"Trace ID is {trace_id}")
 
         id_list.append({"event_id": diet_id, "trace_id": trace_id})
 
