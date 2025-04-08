@@ -108,6 +108,7 @@ def get_workout_ids():
     for msg in consumer:
         message = msg.value.decode("utf-8")
         data = json.loads(message)
+        logger.debug(f"data: {data}")
 
         workout_id = data["payload"]["workout_id"]
         trace_id = data["payload"]["trace_id"]
