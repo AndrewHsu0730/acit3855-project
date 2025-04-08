@@ -36,7 +36,7 @@ def get_workout_msg(index):
             local_time = utc_time.replace(tzinfo=pytz.utc).astimezone(pytz.timezone("America/Vancouver"))
             data["datetime"] = local_time.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-        # logger.debug(data)
+        logger.debug(data)
 
         if data["type"] != "workout":
             continue
@@ -65,7 +65,7 @@ def get_diet_msg(index):
             local_time = utc_time.replace(tzinfo=pytz.utc).astimezone(pytz.timezone("America/Vancouver"))
             data["datetime"] = local_time.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-        # logger.debug(data)
+        logger.debug(data)
         
         if data["type"] != "diet":
             continue
@@ -108,12 +108,13 @@ def get_workout_ids():
     for msg in consumer:
         message = msg.value.decode("utf-8")
         data = json.loads(message)
-        logger.debug(f"data: {data}")
 
         workout_id = data["payload"]["workout_id"]
         trace_id = data["payload"]["trace_id"]
 
         id_list.append({"event_id": workout_id, "trace_id": trace_id})
+
+    logger.debug(f"L: {id_list}")
 
     return id_list
 
@@ -128,12 +129,13 @@ def get_diet_ids():
     for msg in consumer:
         message = msg.value.decode("utf-8")
         data = json.loads(message)
-        logger.debug(f"data: {data}")
 
         diet_id = data["payload"]["diet_id"]
         trace_id = data["payload"]["trace_id"]
 
         id_list.append({"event_id": diet_id, "trace_id": trace_id})
+
+    logger.debug(f"L: {id_list}")
 
     return id_list
 
