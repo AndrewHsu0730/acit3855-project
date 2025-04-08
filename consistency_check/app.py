@@ -37,6 +37,7 @@ def run_consistency_checks():
     analyzer_wid_ep = app_config["services"]["analyzer"]["wid"]
     analyzer_wid_response = httpx.get(analyzer_wid_ep)
     analyzer_wid = analyzer_wid_response.json()
+    logger.debug(f"analyzer_wid: {analyzer_wid}")
 
     analyzer_did_ep = app_config["services"]["analyzer"]["did"]
     analyzer_did_response = httpx.get(analyzer_did_ep)
