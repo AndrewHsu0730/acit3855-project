@@ -107,7 +107,7 @@ services:
       - storage
       - processing
       - analyzer
-      - consistency_check
+      - consistency-check
     volumes:
       - ${PWD}/nginx.conf:/etc/nginx/conf.d/default.conf
     networks:
