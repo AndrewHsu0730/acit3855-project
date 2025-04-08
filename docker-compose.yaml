@@ -107,8 +107,24 @@ services:
       - storage
       - processing
       - analyzer
+      - consistency_check
     volumes:
       - ${PWD}/nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - service
+
+  consistency-check:
+    build:
+      context: consistency_check
+      dockerfile: Dockerfile
+    depends_on:
+      - storage
+      - processing
+      - analyzer
+    volumes:
+      - ./config/consistency_check:/app/config/consistency_check
+      - ./logs/consistency_check:/app/logs/consistency_check
+      - ./data/consistency_check:/app/data/consistency_check
     networks:
       - service
 

@@ -1,0 +1,12 @@
+version: 1
+services:
+  storage:
+    count: http://storage:8090/storage/record-count
+    wid: http://storage:8090/storage/workout-id
+    did: http://storage:8090/storage/diet-id
+  analyzer:
+    count: http://analyzer:8200/analyzer/stats
+    wid: http://analyzer:8200/analyzer/workout-id
+    did: http://analyzer:8200/analyzer/diet-id
+  processing: http://processing:8100/processing/stats
+file_path: data/consistency_check/data.json

@@ -96,7 +96,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Diet'
-  /record_count:
+  /record-count:
     get:
       summary: Retrieve the num of rows for each event
       operationId: app.count_records

@@ -6,6 +6,7 @@ const ANALYZER_API_URL = {
     workout: "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com/analyzer/workout?index=0",
     diet: "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com/analyzer/diet?index=0"
 }
+const CONSISTENCY_DATA_URL = "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com/consistency-check/update"
 
 // This function fetches and updates the general statistics
 const makeReq = (url, cb) => {
@@ -32,6 +33,19 @@ const getStats = () => {
     makeReq(ANALYZER_API_URL.diet, (result) => updateCodeDiv(result, "event-diet"))
 }
 
+const runConsistencyCheck = () => {
+    fetch(CONSISTENCY_DATA_URL, { method: "POST" })
+        .then(res => res.json())
+        .then(data => {
+            // Display the consistency check result in the pre tag
+            document.getElementById("consistency-result").innerText = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            // Display error if something goes wrong
+            document.getElementById("consistency-result").innerText = `Error: ${error.message}`;
+        });
+}
+
 const updateErrorMessages = (message) => {
     const id = Date.now()
     console.log("Creation", id)
@@ -52,3 +66,8 @@ const setup = () => {
 }
 
 document.addEventListener('DOMContentLoaded', setup)
+
+document.getElementById("update-form").addEventListener("submit", (e) => {
+    e.preventDefault();  // Prevent page reload
+    runConsistencyCheck();  // Trigger the consistency check
+})

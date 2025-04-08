@@ -15,5 +15,8 @@ processing/.venv/
 analyzer/__pycache__/
 analyzer/.venv/
 
+consistency_check/__pycache__/
+consistency_check/.venv/
+
 project_description.txt
 project-notes.txt
