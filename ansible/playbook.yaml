@@ -14,6 +14,7 @@
         - storage
         - processing
         - analyzer
+        - consistency_check
     - name: Ensure log folders exist
       ansible.builtin.file:
         path: "/home/ubuntu/acit3855-project/logs/{{ item }}"
@@ -26,6 +27,7 @@
         - storage
         - processing
         - analyzer
+        - consistency_check
     - name: Ensure the folder storing stats.json exists
       ansible.builtin.file:
         path: "/home/ubuntu/acit3855-project/data/processing"
