@@ -63,11 +63,11 @@ const updateErrorMessages = (message) => {
 const setup = () => {
     getStats()
     setInterval(() => getStats(), 4000) // Update every 4 seconds
+
+    document.getElementById("update-form").addEventListener("submit", (e) => {
+        e.preventDefault();  // Prevent page reload
+        runConsistencyCheck();  // Trigger the consistency check
+    })
 }
 
 document.addEventListener('DOMContentLoaded', setup)
-
-document.getElementById("update-form").addEventListener("submit", (e) => {
-    e.preventDefault();  // Prevent page reload
-    runConsistencyCheck();  // Trigger the consistency check
-})
