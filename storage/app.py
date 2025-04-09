@@ -162,13 +162,9 @@ def get_workout_ids():
 
     stmt = select(Workout.workout_id, Workout.trace_id)
 
-    # results = [
-    #     result.to_dict() for result in session.execute(stmt).scalars().all()
-    # ]
-
     results = [
         {"event_id": row[0], "trace_id": row[1]}
-        for row in session.execute(stmt).all() # try only the all method on multiple cols
+        for row in session.execute(stmt).all() # use only the all method on multiple cols
     ]
 
     session.close()
@@ -184,7 +180,8 @@ def get_diet_ids():
     stmt = select(Diet.diet_id, Diet.trace_id)
 
     results = [
-        result.to_dict() for result in session.execute(stmt).scalars().all()
+        {"event_id": row[0], "trace_id": row[1]}
+        for row in session.execute(stmt).all() # use only the all method on multiple cols
     ]
 
     session.close()
