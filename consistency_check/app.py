@@ -52,6 +52,7 @@ def run_consistency_checks():
     storage_wid_ep = app_config["services"]["storage"]["wid"]
     storage_wid_response = httpx.get(storage_wid_ep)
     storage_wid = storage_wid_response.json()
+    logger.debug(f"storage_wid: {storage_wid}")
 
     storage_did_ep = app_config["services"]["storage"]["did"]
     storage_did_response = httpx.get(storage_did_ep)
