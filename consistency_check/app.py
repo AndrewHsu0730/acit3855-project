@@ -125,7 +125,7 @@ def run_consistency_checks():
     processing_time_ms = int((time.time() - start_time) * 1000)
     logger.info(f"Consistency check completed | processing_time_ms = {processing_time_ms} | missing_in_db = {len(missing_in_db)} | missing_in_queue = {len(missing_in_queue)}")
 
-    return processing_time_ms
+    return {"processing_time_ms": processing_time_ms}
 
 
 def get_checks():
