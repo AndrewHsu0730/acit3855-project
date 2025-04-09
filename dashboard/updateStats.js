@@ -6,7 +6,7 @@ const ANALYZER_API_URL = {
     workout: "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com/analyzer/workout?index=0",
     diet: "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com/analyzer/diet?index=0"
 }
-const CONSISTENCY_DATA_URL = "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com/consistency-check/update"
+const CONSISTENCY_DATA_URL = "http://ec2-54-69-130-170.us-west-2.compute.amazonaws.com/consistency-check/checks"
 
 // This function fetches and updates the general statistics
 const makeReq = (url, cb) => {
