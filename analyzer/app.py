@@ -109,12 +109,13 @@ def get_workout_ids():
         message = msg.value.decode("utf-8")
         data = json.loads(message)
 
-        workout_id = data["payload"]["workout_id"]
-        trace_id = data["payload"]["trace_id"]
-        logger.debug(f"Workout ID is {workout_id}")
-        logger.debug(f"Trace ID is {trace_id}")
+        if data["type"] == "workout":
+            workout_id = data["payload"]["workout_id"]
+            trace_id = data["payload"]["trace_id"]
+            logger.debug(f"Workout ID is {workout_id}")
+            logger.debug(f"Trace ID is {trace_id}")
 
-        id_list.append({"event_id": workout_id, "trace_id": trace_id})
+            id_list.append({"event_id": workout_id, "trace_id": trace_id})
 
     logger.debug(f"L: {id_list}")
 
@@ -132,12 +133,13 @@ def get_diet_ids():
         message = msg.value.decode("utf-8")
         data = json.loads(message)
 
-        diet_id = data["payload"]["diet_id"]
-        trace_id = data["payload"]["trace_id"]
-        logger.debug(f"Diet ID is {diet_id}")
-        logger.debug(f"Trace ID is {trace_id}")
+        if data["type"] == "diet":
+            diet_id = data["payload"]["diet_id"]
+            trace_id = data["payload"]["trace_id"]
+            logger.debug(f"Diet ID is {diet_id}")
+            logger.debug(f"Trace ID is {trace_id}")
 
-        id_list.append({"event_id": diet_id, "trace_id": trace_id})
+            id_list.append({"event_id": diet_id, "trace_id": trace_id})
 
     logger.debug(f"L: {id_list}")
 
