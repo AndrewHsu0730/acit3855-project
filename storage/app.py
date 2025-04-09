@@ -162,16 +162,18 @@ def get_workout_ids():
 
     stmt = select(Workout.workout_id, Workout.trace_id)
 
+    # results = [
+    #     result.to_dict() for result in session.execute(stmt).scalars().all()
+    # ]
+
     results = [
-        result.to_dict() for result in session.execute(stmt).scalars().all()
+        {"event_id": row[0], "trace_id": row[1]}
+        for row in session.execute(stmt).all() # try only the all method on multiple cols
     ]
 
     session.close()
 
-    if results:
-        logger.debug(f"Workout IDs: {results}")
-    else:
-        logger.debug("Workout ID list is empty.")
+    logger.debug(f"Workout IDs: {results}")
 
     return results
 
