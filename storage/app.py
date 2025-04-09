@@ -168,7 +168,10 @@ def get_workout_ids():
 
     session.close()
 
-    logger.debug(f"Workout IDs: {results}")
+    if results:
+        logger.debug(f"Workout IDs: {results}")
+    else:
+        logger.debug("Workout ID list is empty.")
 
     return results
 
