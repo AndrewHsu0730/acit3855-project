@@ -48,8 +48,8 @@ components:
     Checks:
       required:
         - counts
-        - not_in_db
-        - not_in_queue
+        - missing_in_db
+        - missing_in_queue
         - last_updated
       type: object
       properties:
@@ -80,7 +80,7 @@ components:
                   type: integer
                 diet_event:
                   type: integer
-        not_in_db:
+        missing_in_db:
           type: array
           items:
             type: object
@@ -89,7 +89,7 @@ components:
                 type: string
               trace_id:
                 type: string
-        not_in_queue:
+        missing_in_queue:
           type: array
           items:
             type: object
