@@ -35,6 +35,13 @@
         owner: nobody
         group: nogroup
         mode: "0755"
+    - name: Ensure the folder storing data.json exists
+      ansible.builtin.file:
+        path: "/home/ubuntu/acit3855-project/data/consistency_check"
+        state: directory
+        owner: nobody
+        group: nogroup
+        mode: "0755"
     - name: Update the project repo
       ansible.builtin.git:
         repo: "git@github.com:AndrewHsu0730/acit3855-project.git"
