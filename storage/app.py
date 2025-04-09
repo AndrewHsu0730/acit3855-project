@@ -168,6 +168,8 @@ def get_workout_ids():
 
     session.close()
 
+    logger.debug(f"Workout IDs: {results}")
+
     return results
 
 
