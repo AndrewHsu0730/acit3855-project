@@ -5,6 +5,7 @@ from datetime import datetime
 import json
 import yaml
 import logging.config
+import pytz
 
 
 with open("config/consistency_check/log_conf.yaml", "r") as f:
@@ -97,7 +98,8 @@ def run_consistency_checks():
                 "type": "diet"
             })
 
-    last_updated = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
+    last_updated = datetime.now().replace(tzinfo=pytz.utc).astimezone(pytz.timezone("America/Vancouver"))
+    last_updated = last_updated.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     data = {
         "last_updated": last_updated,
