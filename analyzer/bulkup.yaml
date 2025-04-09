@@ -69,9 +69,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/WorkoutIds"
+                $ref: "#/components/schemas/WorkoutIds"
   /diet-id:
     get:
       summary: Retrieve ids for diet
@@ -82,9 +80,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/DietIds"
+                $ref: "#/components/schemas/DietIds"
 
 components:
   schemas:
