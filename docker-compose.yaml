@@ -108,6 +108,7 @@ services:
       - processing
       - analyzer
       - consistency-check
+      - anomaly-detector
     volumes:
       - ${PWD}/nginx.conf:/etc/nginx/conf.d/default.conf
     networks:
@@ -138,6 +139,8 @@ services:
       - ./config/anomaly_detector:/app/config/anomaly_detector
       - ./logs/anomaly_detector:/app/logs/anomaly_detector
       - ./data/anomaly_detector:/app/data/anomaly_detector
+    networks:
+      - service
 
 volumes:
   zookeeper-data:
