@@ -18,5 +18,8 @@ analyzer/.venv/
 consistency_check/__pycache__/
 consistency_check/.venv/
 
+anomaly_detector/__pycache__/
+anomaly_detector/.venv/
+
 project_description.txt
 project-notes.txt
