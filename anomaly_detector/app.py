@@ -28,14 +28,14 @@ def update_anomalies():
     topic = client.topics[str.encode(app_config["events"]["topic"])]
     consumer = topic.get_simple_consumer(reset_offset_on_start=True, consumer_timeout_ms=1000)
 
+    workout_anomalies = []
+    diet_anomalies = []
+
     for msg in consumer:
         message = msg.value.decode("utf-8")
         data = json.loads(message)
 
         logger.debug(data)
-
-        workout_anomalies = []
-        diet_anomalies = []
 
         if data["type"] == "workout" and data["payload"]["weight_lifted"] > 50000:
             workout_anomalies.append({
