@@ -128,6 +128,17 @@ services:
     networks:
       - service
 
+  anomaly-detector:
+    build:
+      context: anomaly_detector
+      dockerfile: Dockerfile
+    depends_on:
+      - kafka
+    volumes:
+      - ./config/anomaly_detector:/app/config/anomaly_detector
+      - ./logs/anomaly_detector:/app/logs/anomaly_detector
+      - ./data/anomaly_detector:/app/data/anomaly_detector
+
 volumes:
   zookeeper-data:
 networks:

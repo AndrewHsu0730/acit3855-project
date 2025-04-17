@@ -1,0 +1,6 @@
+version: 1
+events:
+  hostname: kafka
+  port: 9092
+  topic: events
+file_path: data/anomaly_detector/anomaly.json

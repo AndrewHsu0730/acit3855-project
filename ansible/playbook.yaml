@@ -15,6 +15,7 @@
         - processing
         - analyzer
         - consistency_check
+        - anomaly_detector
     - name: Ensure log folders exist
       ansible.builtin.file:
         path: "/home/ubuntu/acit3855-project/logs/{{ item }}"
@@ -28,6 +29,7 @@
         - processing
         - analyzer
         - consistency_check
+        - anomaly_detector
     - name: Ensure the folder storing stats.json exists
       ansible.builtin.file:
         path: "/home/ubuntu/acit3855-project/data/processing"
@@ -38,6 +40,13 @@
     - name: Ensure the folder storing data.json exists
       ansible.builtin.file:
         path: "/home/ubuntu/acit3855-project/data/consistency_check"
+        state: directory
+        owner: nobody
+        group: nogroup
+        mode: "0755"
+    - name: Ensure the folder storing anomaly.json exists
+      ansible.builtin.file:
+        path: "/home/ubuntu/acit3855-project/data/anomaly_detector"
         state: directory
         owner: nobody
         group: nogroup
